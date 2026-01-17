@@ -2,33 +2,65 @@
 
 import java.util.*;
 
-public class FullPrime {
 
+public class FullPrime {
     public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); // 235
-        int sum = 0;
-        int sum1 = 0;
-        
-        for(int i = n; i>0; i = i/10){
-            int digit = i % 10;
-            sum = sum + digit;
-            int count = 0;
-            for(int j = 1;j<=digit; j++){
-                if(digit % j == 0){
-                    count = count + 1;
-                }
+        int n = sc.nextInt();
+        boolean check = true;
+        while(n >0){
+            int rem = n % 10;
+            if(rem == 0 || rem == 1 || rem == 4 || rem == 6 || rem == 8 || rem == 9){
+                check = false;
+                break;
             }
-            if(count == 2){
-                sum1 = sum1 + digit;
-            }
+            n = n / 10;
         }
-        if(sum1 == sum){
-            System.out.print(true);
-        }
-        else{
+        if(check == false){
             System.out.print(false);
         }
+        else{
+            System.out.print(true);
+        }
     }
-}
+} 
+
+
+
+
+
+// Another way to solve
+
+
+
+// /*
+// public class FullPrime {
+
+//     public static void main(String[] args) {
+//         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt(); // 235
+//         int sum = 0;
+//         int sum1 = 0;
+        
+//         for(int i = n; i>0; i = i/10){
+//             int digit = i % 10;
+//             sum = sum + digit;
+//             int count = 0;
+//             for(int j = 1;j<=digit; j++){
+//                 if(digit % j == 0){
+//                     count = count + 1;
+//                 }
+//             }
+//             if(count == 2){
+//                 sum1 = sum1 + digit;
+//             }
+//         }
+//         if(sum1 == sum){
+//             System.out.print(true);
+//         }
+//         else{
+//             System.out.print(false);
+//         }
+//     }
+// }
