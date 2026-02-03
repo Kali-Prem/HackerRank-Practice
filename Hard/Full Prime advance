@@ -1,0 +1,62 @@
+/*
+A Number N will be known as full prime if all the digits of N is prime as well as N is also prime
+
+Input Format
+
+A single integer N take input from User
+
+Constraints
+
+1<=N<=10000
+
+Output Format
+
+Print true if it is full prime otherwise print false
+*/
+
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        
+        if(n < 0){
+            System.out.print(false);
+        }
+        else{
+            int count = 0;
+            for(int i = 1; i <= n; i++){
+                if(n % i ==0){
+                    count++;
+                }
+                
+            }
+            if(count == 2){
+                boolean check = true;
+                while(n>0){
+                    int digit = n % 10;
+                    if(digit == 0 || digit == 1 || digit == 4 || digit == 6 || digit == 8 || digit == 9){
+                        check = false;
+                        break;
+                    }
+                    n = n/10;
+                }
+                if(check == true){
+                    System.out.print(true);
+                }
+                else{
+                    System.out.print(false);
+                }
+            }
+           else{
+            System.out.print(false);
+            }
+        }
+    }
+}
